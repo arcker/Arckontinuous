@@ -4,7 +4,9 @@
         "twig\/twig": "^3.0",
         "phpmv\/ubiquity": "^2.5",
         "phpmv\/ubiquity-latte": "dev-main",
-        "phpmv\/php-mv-ui": "^2.4"
+        "phpmv\/php-mv-ui": "^2.4",
+        "k8s/client": "^1.7",
+        "k8s/http-symfony": "^1.1"
     },
     "require-dev": {
         "monolog\/monolog": "^2.2",
@@ -25,5 +27,10 @@
             "type": "vcs",
             "url": "https:\/\/github.com\/phpMv\/latte-tools"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
 }

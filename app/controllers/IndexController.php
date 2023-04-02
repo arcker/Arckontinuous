@@ -7,6 +7,15 @@ use Ubiquity\log\Logger;
 use Ubiquity\themes\ThemesManager;
 use Ubiquity\views\engine\latte\Latte;
 use Ubiquity\views\engine\latte\LatteTemplateGenerator;
+//
+// // add K8s-client
+use K8s\Api\Model\Api\Core\v1\Pod;
+use K8s\Client\K8sFactory;
+// use K8s\HttpSymfony\ClientFactory;
+// use K8s\Client\K8s\HttpSymfony\ClientFactory;
+
+
+
 
 /**
  * Controller IndexController
@@ -19,19 +28,32 @@ class IndexController extends ControllerBase {
 		// $links = Display::getLinks();
 		// $infos = Display::getPageInfos();
 
-		// $activeTheme = ThemesManager::getActiveTheme();
-		// $themes = Display::getThemes();
-		// if (\count($themes) > 0) {
-		// 	$this->loadView('@activeTheme/main/vMenu.html', \compact('themes', 'activeTheme'));
-		// }
+		$activeTheme = ThemesManager::getActiveTheme();
+		$themes = Display::getThemes();
+		if (\count($themes) > 0) {
+		 	$this->loadView('@activeTheme/main/vMenu.html', \compact('themes', 'activeTheme'));
+		}
 		//$this->loadView($defaultPage, \compact('defaultPage', 'links', 'infos', 'activeTheme'));
 		// $this->render('@activeTheme/templates/index.latte');
 		// echo "*****";
 		$latte = new Latte;
 		// $latte->
-// $latte->setTempDirectory(__DIR__ . '/temp');
-// $latte->setautoRefresh();
-$parameters['items'] = ['one', 'two', 'three'];
+		// $latte->setTempDirectory(__DIR__ . '/temp');
+		// $latte->setautoRefresh();
+		$httpFactory = new \K8s\HttpSymfony\ClientFactory([
+			'verify_peer' => false
+			// 'verify_host' => false,
+		]);
+		
+		$k8s = (new K8sFactory())->loadFromKubeConfigData(file_get_contents(getenv("HOME").'/.kube/config'),null,$httpFactory);
+
+		$options = $k8s->getOptions();
+		$kubeConfig = $options->getKubeConfigContext();
+		// echo ($kubeConfig->getServer());
+
+		$parameters['kubeconfig'] = $kubeConfig->getServer();
+	
+		$parameters['items'] = ['one', 'two', 'three'];
 		$latte->render('main/templates/index.latte', $parameters);
 		// echo "-----";
 		

@@ -1,7 +1,11 @@
-# Arckontinous
+# Arckontinuous
 
 This README outlines the details of collaborating on this Ubiquity application.
-A short introduction of this app could easily go here.
+
+This CI/CD tool will let you monitor a special git repository and apply the modification to any KubeCluster or docker
+
+If you have any other tool, this can be complementary by selecting filters.
+
 
 ## Prerequisites
 

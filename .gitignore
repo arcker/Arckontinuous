@@ -1,6 +1,7 @@
 #.gitignore file
 vendor/
 app/cache/
+node_modules/
 
 # Eclipse
 .settings/

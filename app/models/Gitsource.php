@@ -10,7 +10,7 @@ use Ubiquity\attributes\items\Table;
 class Gitsource{
 	
 	#[Id()]
-	#[Column(name: "id",dbType: "int")]
+	#[Column(name: "id",dbType: "int(11)")]
 	#[Validator(type: "id",constraints: ["autoinc"=>true])]
 	private $id;
 
@@ -73,5 +73,6 @@ class Gitsource{
 	 public function __toString(){
 		return ($this->Type??'no value').'';
 	}
+
 
 }
