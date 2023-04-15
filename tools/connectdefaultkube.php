@@ -15,6 +15,7 @@ $k8s = (new K8sFactory())->loadFromKubeConfig(null,$httpFactory);
 
 $options = $k8s->getOptions();
 $kubeConfig = $options->getKubeConfigContext();
+echo ($kubeConfig->getServer());
 
 // $this->assertInstanceOf(K8s::class, $result);
 echo ($options->getEndpoint());
