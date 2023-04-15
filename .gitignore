@@ -21,6 +21,6 @@ node_modules/
 
 # Local History for Visual Studio Code
 .history/
-app/logs/app.log
+logs/
 routes.txt
-app/logs/app.log
+
