@@ -28,11 +28,11 @@ class IndexController extends ControllerBase {
 		// $links = Display::getLinks();
 		// $infos = Display::getPageInfos();
 
-		$activeTheme = ThemesManager::getActiveTheme();
-		$themes = Display::getThemes();
-		if (\count($themes) > 0) {
-		 	$this->loadView('@activeTheme/main/vMenu.html', \compact('themes', 'activeTheme'));
-		}
+		// $activeTheme = ThemesManager::getActiveTheme();
+		// $themes = Display::getThemes();
+		// if (\count($themes) > 0) {
+		//  	$this->loadView('@activeTheme/main/vMenu.html', \compact('themes', 'activeTheme'));
+		// }
 		//$this->loadView($defaultPage, \compact('defaultPage', 'links', 'infos', 'activeTheme'));
 		// $this->render('@activeTheme/templates/index.latte');
 		// echo "*****";

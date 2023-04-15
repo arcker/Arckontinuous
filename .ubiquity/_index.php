@@ -24,6 +24,6 @@ require ROOT . 'config/services.php';
 
 \Ubiquity\controllers\Startup::run($config);
 
-if (\Ubiquity\debug\LiveReload::hasLiveReload()) {
-	echo \Ubiquity\debug\LiveReload::start();
-}
+// if (\Ubiquity\debug\LiveReload::hasLiveReload()) {
+// 	echo \Ubiquity\debug\LiveReload::start();
+// }
