@@ -23,3 +23,4 @@ node_modules/
 .history/
 app/logs/app.log
 routes.txt
+app/logs/app.log
