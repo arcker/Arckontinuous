@@ -1,7 +1,7 @@
 #.gitignore file
 vendor/
 app/cache/
-app/logs/
+*.log
 node_modules/
 
 # Eclipse
